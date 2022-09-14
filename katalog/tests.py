@@ -8,8 +8,8 @@ class Coba(TestCase):
     def setUp(self):
         CatalogItem.objects.create(
             item_name = "Shampoo Kuda",
-            item_price = 40000,
-            item_stock = 3,
+            item_price = 155295,
+            item_stock = 5,
             description = "Cepet Tumbuh",
             rating = 10,
             item_url = "https://www.tokopedia.com/orvinhb/mane-n-tail-shampoo-355-ml-mane-n-tail-shampoo-kuda-sampo-kuda?extParam=ivf%3Dfalse%26whid%3D13393692&src=topads")
