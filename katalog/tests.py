@@ -25,3 +25,4 @@ class Test(TestCase):
         testing2 = CatalogItem.objects.get(item_name = "PS5")
         self.assertIn("Shampoo Kuda", testing1.item_name)
         self.assertIn("PS5", testing2.item_name)
+
