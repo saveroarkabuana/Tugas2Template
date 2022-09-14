@@ -3,11 +3,11 @@
 ## Savero Arkabuana
 ## 2106635985
 
-### [Link Web Tugas2](https://veroarkabuana.herokuapp.com/katalog/)
+### [Link Aplikasi Tugas2](https://veroarkabuana.herokuapp.com/katalog/)
 
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
-![Bagan](baganReadmePBP.png)
+![Bagan](baganREADME.jpg)
 
 ## Penjelasan _flow_ Tugas2
 
@@ -78,6 +78,8 @@ class CatalogItem(models.Model):
       </tr>
     {% endfor %}
 ```
+## Pengembangan Aplikasi dengan Virtual Environment
+Dalam pengembangan sebuah aplikasi dengan python, pengembangan menggunakan Virtual Environment direkomendasikan agar mengisolasi proses pengembangan aplikasi tersebut Hal ini dikarenakan Virtual Environment berfungsi untuk menjaga dependensi proyek tetap terpisah.
 
 ## Contoh Deployment 
 
