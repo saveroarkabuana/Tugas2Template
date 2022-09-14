@@ -94,14 +94,12 @@ Setelah selesai mengisi _template_, _repository_ kemudian disimpan pada akun Git
 ## Pengembangan Aplikasi dengan Virtual Environment
 Dalam pengembangan sebuah aplikasi dengan python, pengembangan menggunakan Virtual Environment direkomendasikan agar mengisolasi proses pengembangan aplikasi tersebut Hal ini dikarenakan Virtual Environment berfungsi untuk menjaga dependensi proyek tetap terpisah dan tidak menyebabkan konflik _web based_ apabila proses pengembangan aplikasi dilakukan pada _web based_ yang berbeda. Pengembangan apilkasi tanpa Virtual Enviroment tetap bisa dilakukan, tapi tidak dianjurkan agar menghindari proses konflik _web based_ yang berbeda dan meng-_install_ _requirements_ berbeda untuk masing-masing _web based_.
 
+## Sumber
 
+https://github.com/pbp-fasilkom-ui/assignment-repository
+https://docs.djangoproject.com/en/4.1/topics/http/urls/#:~:text=Django%20runs%20through%20each%20URL,a%20class%2Dbased%20view).
+https://www.geeksforgeeks.org/python-virtual-environment/
+https://docs.djangoproject.com/en/4.1/topics/db/models/
+https://docs.djangoproject.com/en/4.1/topics/http/views/
+https://stackoverflow.com/questions/48282473/how-to-make-a-loop-in-html
 
-Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
-
-Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
-
-Untuk contoh aplikasi Django yang sudah di deploy, dapat kamu akses di [https://django-pbp-template.herokuapp.com/](https://django-pbp-template.herokuapp.com/)
-
-## Credits
-
-Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
