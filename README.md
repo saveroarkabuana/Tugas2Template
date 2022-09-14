@@ -11,11 +11,13 @@ Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu 
 
 ## Penjelasan _flow_ Tugas2
 
-Grafik diatas menunjukan _flow_ dari Tugas2 ini. Pertama-tama sebuah _request_ masuk ke server Django lalu dirutekan melalui ```urls.py``` ke ```views.py```. Lalu ```views.py``` akan mengirim _query_ ke ```models.py```, dan akan memberikan hasil _query_ ke ```views.py```. Setelah _request_ ditangani, hasil akan diterjemahkan ke dalam HTML yang telah dibuat dan HTML akan dikirim kembali ke pengguna sebagai _response_.
+Grafik diatas menunjukan _flow_ dari Tugas2 ini. Pertama-tama sebuah _request_ masuk ke server Django lalu dirutekan melalui ```urls.py``` ke ```views.py```. Lalu ```views.py``` akan mengambil data dari ```models.py```, dan akan memberikan hasil dalam bentuk _query_ kembali ke ```views.py```. Setelah _request_ ditangani, hasil akan diterjemahkan ke dalam html yang telah dibuat dan html akan dikirim kembali ke pengguna sebagai _response_.
 
-## Penjelasan Kode
+## Penjelasan Cara Mengimplementasikan Poin 1 Sampai dengan 4.
 
-## urls.py
+Melakukan _set-up_ pembuatan aplikasi dengan menggunakan Virtual Enviroment dan melakukan _clone_ dari _template_, lalu mulai mengisi arahan _template_.
+
+### urls.py
 
 ```urls.py``` pada ```project_django```
 
@@ -26,18 +28,33 @@ urlpatterns = [
     path("katalog/", include("katalog.urls")),
 ]
 ```
-
+Pada bagian ```urls.py``` di ```project_django```, ditambahkan line ```path("katalog/", include("katalog.urls"))``` yang berfungsi sebagai arahan untuk mengambil data sesuai dengan _request_.
 
 ```urls.py``` pada ```katalog```
+
 ```app_name = "katalog"
 
 urlpatterns = [
     path("", show_katalog, name = "show_katalog"),
 ]
 ```
+Pada bagian ```urls.py``` di ```katalog```, ditambahkan line ```app_name = "katalog"``` yang berfungsi untuk menambahkan _namespace_ untuk aplikasi dan line ```path("", show_katalog, name = "show_katalog")``` berfungsi sebagai arahan untuk menampilkan isi data dari _function_ ```show_katalog``` pada ```views.py``` .
 
+### models.py
 
-## views.py
+```
+class CatalogItem(models.Model):
+    item_name = models.CharField(max_length=255)
+    item_price = models.BigIntegerField()
+    item_stock = models.IntegerField()
+    description = models.TextField()
+    rating = models.IntegerField()
+    item_url = models.URLField()
+```
+
+Pada bagian ```models.py```, ada proses pendefinisian _database_ yang akan disimpan pada variabel-variabel untuk dipakai pada ```views.py```.
+
+### views.py
 
 ```
 from katalog.models import CatalogItem
@@ -51,20 +68,10 @@ def show_katalog(request):
     }
     return render(request, "katalog.html", context)
 ```
+Pada bagian ```views.py``` di ```katalog``` berisi _function_ ```show_katalog``` yang memuat _database_ pada ```models.py``` untuk disimpan pada variabel ```list_barang``` agar variabel bisa digunakan dalam _loop_ pada html agar bisa ditampilkan.
 
-## models.py
 
-```
-class CatalogItem(models.Model):
-    item_name = models.CharField(max_length=255)
-    item_price = models.BigIntegerField()
-    item_stock = models.IntegerField()
-    description = models.TextField()
-    rating = models.IntegerField()
-    item_url = models.URLField()
-```
-
-## html
+### html
 
 ```
 {% for item in list_barang %}
@@ -78,10 +85,16 @@ class CatalogItem(models.Model):
       </tr>
     {% endfor %}
 ```
-## Pengembangan Aplikasi dengan Virtual Environment
-Dalam pengembangan sebuah aplikasi dengan python, pengembangan menggunakan Virtual Environment direkomendasikan agar mengisolasi proses pengembangan aplikasi tersebut Hal ini dikarenakan Virtual Environment berfungsi untuk menjaga dependensi proyek tetap terpisah.
+Pada bagian html, terdapat penambahan _loop_ yang berfungsi untuk memanggil variabel yang telah di-_define_ pada ```views.py``` dan parameter data yang diambil adalah pada variabel ```list_barang``` yang telah di-_define_ untuk mencakup semua isi _object_ pada ```models.py```. Data-data yang sesuai kemudian akan ditampilkan dalam aplikasi.
 
-## Contoh Deployment 
+### Deployment
+
+Setelah selesai mengisi _template_, _repository_ kemudian disimpan pada akun GitHub dengan menggunakan ```git add .```, ```git commit -m "commit message"```, dan ```git push```. Setelah _repository_ telah disimpan, akan di-_deploy_ menggunakan _platform_ Heroku dengan mengikuti arahan pada _template_ yang diberikan pada Tugas2 ini.
+
+## Pengembangan Aplikasi dengan Virtual Environment
+Dalam pengembangan sebuah aplikasi dengan python, pengembangan menggunakan Virtual Environment direkomendasikan agar mengisolasi proses pengembangan aplikasi tersebut Hal ini dikarenakan Virtual Environment berfungsi untuk menjaga dependensi proyek tetap terpisah dan tidak menyebabkan konflik _web based_ apabila proses pengembangan aplikasi dilakukan pada _web based_ yang berbeda. Pengembangan apilkasi tanpa Virtual Enviroment tetap bisa dilakukan, tapi tidak dianjurkan agar menghindari proses konflik _web based_ yang berbeda dan meng-_install_ _requirements_ berbeda untuk masing-masing _web based_.
+
+
 
 Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
 
