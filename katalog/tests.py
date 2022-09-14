@@ -1,9 +1,7 @@
 from django.test import TestCase
-
 # Create your tests here.
 from katalog.models import CatalogItem
 
-# Create your tests here.
 class Coba(TestCase):
     def setUp(self):
         CatalogItem.objects.create(
@@ -22,9 +20,9 @@ class Coba(TestCase):
             rating = 10,
             item_url = "https://www.tokopedia.com/nichosgamezone/ps5-playstation-5-disc-sony-indo?extParam=ivf%3Dfalse%26src%3Dsearch")
 
-    
     def test_if_item_exists(self):
         coba1 = CatalogItem.objects.get(item_name = "Shampoo Kuda")
         coba2 = CatalogItem.objects.get(item_name = "PS5")
         self.assertIn("Shampoo Kuda", coba1.item_name)
         self.assertIn("PS5", coba2.item_name)
+        
