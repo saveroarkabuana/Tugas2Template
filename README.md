@@ -1,53 +1,83 @@
-# Template Proyek Django PBP
+# ReadMe.MD 
+## Tugas2
+## Savero Arkabuana
+## 2106635985
+
+### [Link Web Tugas2](https://veroarkabuana.herokuapp.com/katalog/)
 
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
-*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
+![Bagan](baganReadmePBP.png)
 
-## Pendahuluan
+## Penjelasan _flow_ Tugas2
 
-Repositori ini merupakan sebuah template yang dirancang untuk membantu mahasiswa yang sedang mengambil mata kuliah Pemrograman Berbasis Platform (CSGE602022) mengetahui struktur sebuah proyek aplikasi Django serta file dan konfigurasi yang penting dalam berjalannya aplikasi. Kamu dapat dengan bebas menyalin isi dari repositori ini atau memanfaatkan repositori ini sebagai pembelajaran sekaligus awalan dalam membuat sebuah proyek Django.
+Grafik diatas menunjukan _flow_ dari Tugas2 ini. Pertama-tama sebuah _request_ masuk ke server Django lalu dirutekan melalui ```urls.py``` ke ```views.py```. Lalu ```views.py``` akan mengirim _query_ ke ```models.py```, dan akan memberikan hasil _query_ ke ```views.py```. Setelah _request_ ditangani, hasil akan diterjemahkan ke dalam HTML yang telah dibuat dan HTML akan dikirim kembali ke pengguna sebagai _response_.
 
-## Cara Menggunakan
+## Penjelasan Kode
 
-Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nantinya akan kamu modifikasi:
+## urls.py
 
-1. Buka laman GitHub repositori templat kode, lalu klik tombol "**Use this template**"
-   untuk membuat salinan repositori ke dalam akun GitHub milikmu.
-2. Buka laman GitHub repositori yang dibuat dari templat, lalu gunakan perintah
-   `git clone` untuk menyalin repositorinya ke suatu lokasi di dalam sistem
-   berkas (_filesystem_) komputermu:
+```urls.py``` pada ```project_django```
 
-   ```shell
-   git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
-   ```
-3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
-   untuk menyalakan _virtual environment_:
+```
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('example_app.urls')),
+    path("katalog/", include("katalog.urls")),
+]
+```
 
-   ```shell
-   python -m venv env
-   ```
-4. Nyalakan environment dengan perintah berikut:
 
-   ```shell
-   # Windows
-   .\env\Scripts\activate
-   # Linux/Unix, e.g. Ubuntu, MacOS
-   source env/bin/activate
-   ```
-5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
+```urls.py``` pada ```katalog```
+```app_name = "katalog"
 
-   ```shell
-   pip install -r requirements.txt
-   ```
+urlpatterns = [
+    path("", show_katalog, name = "show_katalog"),
+]
+```
 
-6. Jalankan aplikasi Django menggunakan server pengembangan yang berjalan secara
-   lokal:
 
-   ```shell
-   python manage.py runserver
-   ```
-7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
+## views.py
+
+```
+from katalog.models import CatalogItem
+
+def show_katalog(request):
+    data_barang_catalog = CatalogItem.objects.all()
+    context = {
+        "list_barang" : data_barang_catalog,
+        "nama" : "Savero Arkabuana",
+        "id" : "2106635985",
+    }
+    return render(request, "katalog.html", context)
+```
+
+## models.py
+
+```
+class CatalogItem(models.Model):
+    item_name = models.CharField(max_length=255)
+    item_price = models.BigIntegerField()
+    item_stock = models.IntegerField()
+    description = models.TextField()
+    rating = models.IntegerField()
+    item_url = models.URLField()
+```
+
+## html
+
+```
+{% for item in list_barang %}
+    <tr>
+        <th>{{item.item_name}}</th>
+        <th>{{item.item_price}}</th>
+        <th>{{item.item_stock}}</th>
+        <th>{{item.rating}}</th>
+        <th>{{item.description}}</th>
+        <th>{{item.item_url}}</th>
+      </tr>
+    {% endfor %}
+```
 
 ## Contoh Deployment 
 
