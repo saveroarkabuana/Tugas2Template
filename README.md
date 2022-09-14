@@ -7,6 +7,8 @@
 
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
+![Bagan](baganReadmePBP.png)
+
 ## Penjelasan _flow_ Tugas2
 
 Grafik diatas menunjukan _flow_ dari Tugas2 ini. Pertama-tama sebuah _request_ masuk ke server Django lalu dirutekan melalui ```urls.py``` ke ```views.py```. Lalu ```views.py``` akan mengirim _query_ ke ```models.py```, dan akan memberikan hasil _query_ ke ```views.py```. Setelah _request_ ditangani, hasil akan diterjemahkan ke dalam HTML yang telah dibuat dan HTML akan dikirim kembali ke pengguna sebagai _response_.
