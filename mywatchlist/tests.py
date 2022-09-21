@@ -25,6 +25,4 @@ class Testlistmywatchlist(TestCase):
         response = Client().get('/mywatchlist/')
         self.assertTemplateUsed(response, "mywatchlist.html")
 
-
-
-
+        
