@@ -26,4 +26,6 @@ class mywatchlist(TestCase):
         self.assertTemplateUsed(response, "mywatchlist.html")
 
 
+
+
         
