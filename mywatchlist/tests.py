@@ -24,3 +24,6 @@ class mywatchlist(TestCase):
     def test_contoh_app_using_to_do_list_template(self):
         response = Client().get('/mywatchlist/')
         self.assertTemplateUsed(response, "mywatchlist.html")
+
+
+        
