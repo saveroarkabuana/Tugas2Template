@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js%22%3E"></script>
+    <body style="background-image: url(https://d2x51gyc4ptf2q.cloudfront.net/content/uploads/2022/05/02152559/manu1.jpg);"></body>
+    <style>
+    h1, h5, p {text-align: center; color: aliceblue;}
+    th{justify-content: center;}
+    div{text-align: center;}
+    table, th, td {justify-content: center; border: 1px solid rgb(255, 255, 255);
+    padding: 0px 10px;}
+    tr { text-align: center;background-color: rgba(10, 1, 1, 0.522);}
+
+    body{text-align: center;
+        color: aliceblue;
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+
+    <h1>Tugas 3 Assignment PBP/PBD</h1>
+
+    <h5>Name : {{nama}} </h5> 
+
+    <h5>Student ID : {{npm}}</h5> 
+
+    <h5>{{selamat}}</h5> 
+
+    <div class="center">
+    <table>
+        <tr>
+        <th>Watched</th>
+        <th>Title</th>
+        <th>Rating</th>
+        <th>Release Date</th>
+        <th>Review</th>
+        </tr>
+        {% comment %} Add the data below this line {% endcomment %}
+        {% for item in list_film %}
+        <tr>
+            <th>{{item.watched}}</th>
+            <th>{{item.title}}</th>
+            <th>{{item.rating}}</th>
+            <th>{{item.release_date}}</th>
+            <th>{{item.review}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    
+
+ {% endblock content %}
+ 

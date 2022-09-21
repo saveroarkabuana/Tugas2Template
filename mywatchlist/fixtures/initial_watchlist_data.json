@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "watched": "yes",
+            "title": "The Dark Knight",
+            "rating": 10,
+            "release_date": "18 Juli 2008",
+            "review": " Why So Serious? "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "watched": "yes",
+            "title": "Black Panther",
+            "rating": 10,
+            "release_date": "14 Februari 2018",
+            "review": " Wakanda Forever. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "watched": "yes",
+            "title": "The Dark Knight Rises",
+            "rating": 9,
+            "release_date": "20 Juli 2012",
+            "review": " Born in the dark. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "watched": "yes",
+            "title": "Ocean's Eleven",
+            "rating": 9,
+            "release_date": "7 Desember 2001",
+            "review": " Smart Crime Thriller? "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched": "yes",
+            "title": "Pasific Rim",
+            "rating": 8,
+            "release_date": "11 Juli 2013",
+            "review": " Cancelling the Apocalypse. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "watched": "yes",
+            "title": "Sherlock Holmes",
+            "rating": 8,
+            "release_date": "27 Desember 2009",
+            "review": " You know my methods, Watson. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "watched": "yes",
+            "title": "La La Land",
+            "rating": 8,
+            "release_date": "9 Desember 2016",
+            "review": " Here's to the ones who dream. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "watched": "yes",
+            "title": "Rogue One",
+            "rating": 8,
+            "release_date": "14 Desember 2016",
+            "review": " The Force is with me. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "watched": "yes",
+            "title": "The Empire Strikes Back",
+            "rating": 10,
+            "release_date": "21 Mei 1980",
+            "review": " No, I'am your father. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "watched": "yes",
+            "title": "Spider Man: Into the Spider-Verse",
+            "rating": 9,
+            "release_date": "12 Desember 2018",
+            "review": " Sunflower. "
+        }
+    }
+]
