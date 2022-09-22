@@ -41,7 +41,7 @@ Apabila dalam pengembangan suatu web, maka akan ada _request_ data yang bisa mem
 
 ### Menambahkan models yang dibutuhkan untuk mywatchlist
 
-- Memasukkan _models_ yang dibutuhkan mywatchlist pada variabel-variabel yang akan dipakai dalam _file_ pada mywatchlist
+- Memasukkan _models_ yang dibutuhkan mywatchlist pada variabel-variabel yang akan dipakai dalam _file_ pada mywatchlist.
 
 ```
 from django.db import models
@@ -81,12 +81,12 @@ class MyWatchList(models.Model):
 ]
 ```
 
-Lalu setelah selesai mengisi initial_watchlist_data.json, melakukan _command_ ```python manage.py loaddata initial_watchlist_data.json```
+Lalu setelah selesai mengisi initial_watchlist_data.json, melakukan _command_ ```python manage.py loaddata initial_watchlist_data.json```.
 
 
 ### Menambahkan urlpatterns pada urls.py mywatchlist
 
-- Berbeda dengan urlpatterns pada katalog, perlu ditambahkan
+- Berbeda dengan urlpatterns pada katalog, perlu ditambahkan potongan kode dibawah ini,
 
 ```
 path('html/', show_mywatchlist, name='show_mywatchlist'),
