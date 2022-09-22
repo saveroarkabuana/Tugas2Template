@@ -16,7 +16,7 @@ Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu 
 - JSON (JavaScript Object Notation) adalah format yang bermanfaat untuk menyimpan, membaca, dan mentransfer data dari server web. JSON berfungsi untuk merepresentasi data dalam bentuk _key-value pairs_ yang memudahkan data untuk di-_convert_ dari objek pada JavaScript.
 
 ### XML
-- XML (eXtensible Markup Language) merupakan _markup language_ yang mirip dengan HTML, tetapi tanpa _tags_ yang sudah ditentukan. XML berguna untuk menyimpan dan memindahkan data _tag_ yang bisa disimpan dalam format yang bisa disesuaikan
+- XML (eXtensible Markup Language) merupakan _markup language_ yang mirip dengan HTML, tetapi tanpa _tags_ yang sudah ditentukan. XML berguna untuk menyimpan dan memindahkan data _tag_ yang bisa disimpan dalam format yang bisa disesuaikan.
 
 ### HTML
 - HTML (HyperText Markup Language) merupakan _markup language_ yang berorientasi pada penyajian data pada sebuah web agar bisa ditampilkan sesuai dengan kemauan _developer_. HTML berbeda dengan XML dikarenakan adanya _tags_ yang sudah di _defined_ oleh HTML.
