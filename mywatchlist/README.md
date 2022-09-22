@@ -157,8 +157,11 @@ def test_mywatchlistxml_exists(self):
 - Setelah selesai mengisi file-file pada mywatchlist, _repository_ kemudian disimpan pada akun GitHub dengan menggunakan ```git add .```, ```git commit -m "commit message"```, dan ```git push```. Setelah _repository_ telah disimpan, akan di-_deploy_ menggunakan _platform_ Heroku dengan mengikuti arahan pada _template_ yang digunakan pada Tugas2 sebelum Tugas3 ini.
 
 ## Screenshot Postman html, JSON, dan XML
+### html
 ![html](SS_html.jpg)
+### JSON
 ![JSON](SS_JSON.jpg)
+### XML
 ![XML](SS_XML.jpg)
 
 
