@@ -248,10 +248,11 @@ def cek_selesai(request, id):
 
 ## Sumber
 
-https://github.com/pbp-fasilkom-ui/assignment-repository
-https://docs.djangoproject.com/en/4.1/topics/http/urls/#:~:text=Django%20runs%20through%20each%20URL,a%20class%2Dbased%20view).
-https://www.geeksforgeeks.org/python-virtual-environment/
-https://docs.djangoproject.com/en/4.1/topics/db/models/
-https://docs.djangoproject.com/en/4.1/topics/http/views/
-https://stackoverflow.com/questions/48282473/how-to-make-a-loop-in-html
-https://www.coursera.org/lecture/service-oriented-architecture/4-1-5-html-xml-json-rK9X5
+- https://github.com/pbp-fasilkom-ui/assignment-repository
+- https://docs.djangoproject.com/en/4.1/topics/http/urls/#:~:text=Django%20runs%20through%20each%20URL,a%20class%2Dbased%20view).
+- https://www.geeksforgeeks.org/python-virtual-environment/
+- https://docs.djangoproject.com/en/4.1/topics/db/models/
+- https://docs.djangoproject.com/en/4.1/topics/http/views/
+- https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/
+- https://docs.djangoproject.com/en/4.1/ref/csrf/
+- https://www.educative.io/answers/what-is-a-csrf-token-in-django
