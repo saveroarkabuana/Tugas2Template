@@ -24,6 +24,7 @@ def show_mywatchlist(request):
         context["selamat"] += "Wah, kamu masih sedikit menonton!"
 
     return render(request, "mywatchlist.html", context)
+    
 
 def show_xml(request):
     data = MyWatchList.objects.all()
