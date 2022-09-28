@@ -17,8 +17,8 @@ Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu 
 
 ## Apakah kita dapat membuat elemen <form> secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat <form> secara manual.
 
-- Untuk membuat <form> secara manual tentu saja bisa. <form> secara manual dibuat dengan menggunakan {% csrf_token %} untuk _user_ yang membuat form tersebut dan _method_ "POST". Pada ```createtask.html``` terdapat pembuatan form dengan <table> yang diisi oleh <tr> yang berisikan isi _input_ yang diinginkan dan disesuaikan dengan _fields_ pada ```forms.py``` atas apa saja yang ingin dibuat dalam <form>. Lalu <form> akan divalidasi pada ```views.py``` bagian _function_ ```create_task``` untuk parameter _request_-nya dan divalidasi apakah dia untuk _user_ yang sesuai, dan apabila form sudah valid maka <form> akan disimpan dan ditampilkan sesuai dengan _looping_ yang ada pada ```todolist.html```.
-
+- Untuk membuat <form> secara manual tentu saja bisa. <form> secara manual dibuat dengan menggunakan {% csrf_token %} untuk _user_ yang membuat form tersebut dan _method_ "POST". Pada ```createtask.html``` terdapat pembuatan form dengan ```<table>``` yang diisi oleh ```<tr>``` yang berisikan isi _input_ yang diinginkan dan disesuaikan dengan _fields_ pada ```forms.py``` atas apa saja yang ingin dibuat dalam <form>. Lalu <form> akan divalidasi pada ```views.py``` bagian _function_ ```create_task``` untuk parameter _request_-nya dan divalidasi apakah dia untuk _user_ yang sesuai, dan apabila form sudah valid maka <form> akan disimpan dan ditampilkan sesuai dengan _looping_ yang ada pada ```todolist.html```.
+    
 
 ## Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
 
