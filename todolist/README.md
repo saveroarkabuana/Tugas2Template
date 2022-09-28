@@ -246,6 +246,12 @@ def cek_selesai(request, id):
 - Setelah selesai mengisi file-file pada todolist, _repository_ kemudian disimpan pada akun GitHub dengan menggunakan ```git add .```, ```git commit -m "commit message"```, dan ```git push```. Setelah _repository_ telah disimpan, akan di-_deploy_ menggunakan _platform_ Heroku dengan mengikuti arahan pada _template_ yang digunakan pada tugas-tugas sebelumnya ini.
 
 
+### Test Dummy dengan Dua Akun berbeda
+    
+- Screenshot Akun Pertama
+![Akun Pertama](ssReadmeTugas4(1).jpg)
+- Screenshot Akun Kedua
+![Akun Kedua](ssReadmeTugas4(2).jpg)
 
 ## Sumber
 
