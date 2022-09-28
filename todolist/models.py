@@ -9,3 +9,4 @@ class ToDoListItem(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     date = models.DateField()
+    is_finished = models.BooleanField(default=False)

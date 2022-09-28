@@ -82,6 +82,20 @@ def create_task(request):
         form = TaskForm()
     return render(request, "createtask.html", {'form': form})
 
+def hapus(request, id):
+    task = ToDoListItem.objects.get(id=id)
+    task.delete()
+    return show_todolist(request)
+
+def cek_selesai(request, id):
+    task = ToDoListItem.objects.get(id=id)
+    if task.is_finished:
+        task.is_finished = False
+    else:
+        task.is_finished = True
+    task.save()
+    return show_todolist(request)
+
 
 
     

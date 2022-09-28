@@ -7,19 +7,36 @@
 
 <table class="table table-success table-striped">
     <tr>
-    <th> User </th>
     <th> Judul </th>
     <th> Deskripsi </th>
     <th> Tanggal </th>
+    <th> Status </th>
+    <th> Selesai/Belum Selesai </th>
+    <th> Hapus Task </th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for i in list_todolist %}
     <tr>
-        <th>{{i.user}}</th>
         <th>{{i.title}}</th>
         <th>{{i.description}}</th>
         <th>{{i.date}}</th>
-        
+        {% if i.is_finished %}
+        <th>Selesai</th>
+        {% else %}
+        <th>Belum Selesai</th>
+        {% endif %}
+        <form action="{% url 'todolist:cek-selesai' id=i.id %}" method="post">
+          {% csrf_token %}
+          {% if i.is_finished %}
+          <th><button type="submit">Belum Selesai</button>
+          {% else %}
+          <th><button type="submit">Selesai</button>
+          {% endif %}
+        </form>
+        <form action="{% url 'todolist:hapus' id=i.id %}" method="post">
+          {% csrf_token %}
+          <th><button type="submit">Hapus Task</button>
+        </form>
     </tr>
     {% endfor %}
 </table>
