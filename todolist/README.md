@@ -3,7 +3,8 @@
 ## Savero Arkabuana
 ## 2106635985
 
-### [Link Aplikasi Tugas4](https://veroarkabuana-pbptugas.herokuapp.com/)
+### [Link Aplikasi Heroku](https://veroarkabuana-pbptugas.herokuapp.com/)
+### [Link Aplikasi Heroku](https://veroarkabuana-pbptugas.herokuapp.com/todolist/)
 
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
