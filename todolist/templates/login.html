@@ -6,40 +6,125 @@
 
 {% block content %}
 
+
+<style>
+
+h1{
+    text-align: center;
+    
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container{
+  max-width: 440px;
+  padding: 0 20px;
+  margin: 170px auto;
+  color: aliceblue;
+}
+
+
+.wrapper{
+  width: 100%;
+  background: rgba(209, 10, 76, 0.531);
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(210, 17, 184, 0.1);
+  padding: 10px;
+  
+}
+
+
+.wrapper:hover {
+  box-shadow: 0 0.5em 0.3em -0.2em var(--hover);
+  transform: translateY(-0.15em);
+}
+
+
+.submit {
+  background-color: rgb(221, 0, 85);
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 22px;
+  height: 50px;
+  margin-top: 20px;
+  outline: 0;
+  text-align: center;
+  width: 100%;
+}
+
+
+.submit:hover {
+  box-shadow: 0 0.5em 0.3em -0.2em var(--hover);
+  transform: translateY(-0.15em);
+}
+
+table, th, td {
+    justify-content: center; 
+    text-align: center; 
+    border: 1px 
+    solid rgb(255, 255, 255);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+tr { text-align: center;background-color: rgba(245, 2, 2, 0.522);}
+</style>
+<body  style="background-image: url(https://www.wallpaperuse.com/wallp/26-264578_m.jpg);">
+<div class="center">
 <div class = "login">
+    <div class="container">
+        <div class="wrapper">
 
     <h1>Login</h1>
 
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
             <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                <td>Username</td>
+                <td><input type="text" name="username" class="form-control"></td>
             </tr>
                     
             <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                <td>Password</td>
+                <td><input type="password" name="password" class="form-control"></td>
             </tr>
 
             <tr>
                 <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><button type="text" class="submit" value="Login">Login</button>
+
+                </td>
             </tr>
-        </table>
     </form>
 
     {% if messages %}
-        <ul>
+        <th>
             {% for message in messages %}
-                <li>{{ message }}</li>
+                <th>{{ message }}</th>
             {% endfor %}
-        </ul>
+        <th>
     {% endif %}     
         
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
-
+    <p>Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
+        <p>
 </div>
+</body>
 
 {% endblock content %}
+
+
+<!-- https://getbootstrap.com/docs/4.3/components/card/ -->
+<!-- https://mdbootstrap.com/docs/standard/content-styles/hover-effects/ -->

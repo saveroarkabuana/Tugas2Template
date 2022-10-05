@@ -4,9 +4,84 @@
 <title>Create Task</title>
 {% endblock meta %}
 
-{% block content %}  
+{% block content %}
 
-<h1>Create Task</h1>  
+
+<style>
+
+    h1{
+        text-align: center;
+        vertical-align: middle;   
+        box-sizing: border-box;
+    }
+    
+    table{
+        text-align: left;
+    }
+    body {
+        align-items: center;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        vertical-align: middle;
+        color: #000;
+      }
+    
+    
+      .container{
+      max-width: 550px;
+      padding: 15px;
+      margin: 170px;
+      color: rgb(255, 255, 255);
+      vertical-align: middle;
+    }
+    
+    
+    .wrapper{
+      width: 100%;
+      background: rgba(209, 10, 76, 0.642);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px 1px rgba(210, 17, 184, 0.1);
+      padding: 15px;
+      vertical-align: middle;
+      
+    }
+    
+    .submit {
+      background-color: rgba(221, 0, 85, 0.547);
+      border-radius: 3px;
+      box-sizing: border-box;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      font-size: 22px;
+      height: 50px;
+      margin-top: 20px;
+      outline: 0;
+      text-align: center;
+      width: 100%;
+      vertical-align: middle;
+    }
+    
+    td{
+        color: rgb(255, 255, 255);
+        text-align: center;
+    }
+    h1{
+        color: #000;
+    }
+    
+    .submit:hover {
+      box-shadow: 0 0.5em 0.3em -0.2em var(--hover);
+      transform: translateY(-0.15em);
+    }
+    
+    </style>
+<body  style="background-image: url(https://www.wallpaperuse.com/wallp/26-264578_m.jpg);">
+<div class="container">
+    <div class="wrapper">
+        <h1>Create Task</h1>
 
     <form method="POST" >  
         {% csrf_token %}  
@@ -22,7 +97,7 @@
             </tr>
             <tr>  
                 <td></td>
-                <td><input type="submit" name="submit" value="Post"/></td>  
+                <td><button type="submit" class="submit" value="POST">Create Task</button></td>  
             </tr>  
         </table>  
     </form>
@@ -38,3 +113,8 @@
 
 
 {% endblock content %}
+</body>
+
+
+<!-- https://getbootstrap.com/docs/4.3/components/card/ -->
+<!-- https://mdbootstrap.com/docs/standard/content-styles/hover-effects/ -->

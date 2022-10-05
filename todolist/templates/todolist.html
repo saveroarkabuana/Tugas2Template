@@ -2,46 +2,126 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js%22%3E"> </script>
 {% block content %}
-<h5>User : {{user}} </h5>
-<!-- <b>{{nama}}</b> -->
 
-<table class="table table-success table-striped">
-    <tr>
-    <th> Judul </th>
-    <th> Deskripsi </th>
-    <th> Tanggal </th>
-    <th> Status </th>
-    <th> Selesai/Belum Selesai </th>
-    <th> Hapus Task </th>
-    </tr>
+<style>
+
+a{
+  color: black;
+}
+.card{
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+
+
+.card-body{
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(249, 0, 108, 0.946);
+    opacity: 0,5;
+}
+
+
+.card-text{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.card-font{
+  color: black;
+
+
+}
+.card:hover{
+  transform: translateY(-10px);
+}
+
+
+h4{
+  font-size: 30px;
+}
+
+h5{
+  justify-content: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+h6{
+  font-size: 15px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.submit {
+      background-color: rgba(165, 37, 86, 0.547);
+      border-radius: 80px;
+      max-width: fit-content;
+      min-width: fit-content;
+      vertical-align: middle;
+      box-sizing: content-box;
+      color: rgb(252, 252, 252);
+      cursor: pointer;
+      font-size: 15px;
+      height: 25px;
+      margin-top: 20px;
+      outline: 0;
+      text-align: center;
+      width: 50%;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+  .submit:hover {
+    box-shadow: 0 0.5em 0.3em -0.2em var(--hover);
+    transform: translateY(-0.15em);
+}
+
+
+</style>
+
+<h5>User : {{user}} </h5>
+<body style="background-image: url(https://www.wallpaperuse.com/wallp/26-264578_m.jpg);">
+  
+
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for i in list_todolist %}
-    <tr>
-        <th>{{i.title}}</th>
-        <th>{{i.description}}</th>
-        <th>{{i.date}}</th>
-        {% if i.is_finished %}
-        <th>Selesai</th>
-        {% else %}
-        <th>Belum Selesai</th>
-        {% endif %}
+
+    <div class="card" style="width: 18rem; margin-right: auto; margin-left: auto; padding-bottom: 20; margin-top: 20px;">
+      <div class="card-body">
+        <h4 class="card-font">{{i.title}}</h4>
+        <h6 class="card-font">{{i.description}}</h6>
+        <p class="card-text">{{i.date}}</p>
         <form action="{% url 'todolist:cek-selesai' id=i.id %}" method="post">
           {% csrf_token %}
           {% if i.is_finished %}
-          <th><button type="submit">Belum Selesai</button>
+          <th><button type="submit" class="submit">Belum Selesai</button>
           {% else %}
-          <th><button type="submit">Selesai</button>
+          <th><button type="submit" class="submit">Selesai</button>
           {% endif %}
         </form>
         <form action="{% url 'todolist:hapus' id=i.id %}" method="post">
           {% csrf_token %}
-          <th><button type="submit">Hapus Task</button>
+          <th><button type="submit" class="submit">Hapus Task</button>
         </form>
     </tr>
+      </div>
+    </div>
     {% endfor %}
-</table>
+
 <h5>Sesi terakhir login : {{ last_login }}</h5>
-<button><a href="{% url 'todolist:createtask' %}">Create Task</a></button>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+<h5><button type="submit" class="submit"><a href="{% url 'todolist:createtask' %}">Create Task</a></button></h5>
+<h5><button type="submit" class="submit"><a href="{% url 'todolist:logout' %}">Logout</a></button></h5>
+</h5>
 
 {% endblock content %}
+
+</body>
+
+<!-- https://getbootstrap.com/docs/4.3/components/card/ -->
+<!-- https://mdbootstrap.com/docs/standard/content-styles/hover-effects/ -->

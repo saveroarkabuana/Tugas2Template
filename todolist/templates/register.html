@@ -4,10 +4,79 @@
 <title>Registrasi Akun</title>
 {% endblock meta %}
 
-{% block content %}  
+{% block content %}
+<style>
 
-<div class = "login">
-    
+h1{
+    text-align: center;
+    vertical-align: middle;   
+    box-sizing: border-box;
+}
+
+table{
+    text-align: left;
+}
+
+body {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
+  .container{
+  max-width: 700px;
+  padding: 0 20px;
+  margin: 170px auto;
+  color: aliceblue;
+  vertical-align: middle;
+}
+
+
+.wrapper{
+  width: 100%;
+  background: rgba(209, 10, 76, 0.642);
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(210, 17, 184, 0.1);
+  padding: 15px;
+  vertical-align: middle;
+  
+}
+
+.submit {
+  background-color: rgba(221, 0, 85, 0.547);
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 22px;
+  height: 50px;
+  margin-top: 20px;
+  outline: 0;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
+}
+
+td{
+    color: aliceblue;
+}
+
+.submit:hover {
+  box-shadow: 0 0.5em 0.3em -0.2em var(--hover);
+  transform: translateY(-0.15em);
+}
+
+</style>
+<body style="background-image: url(https://www.wallpaperuse.com/wallp/26-264578_m.jpg);">
+
+
+    <div class="container">
+        <div class="wrapper">
     <h1>Formulir Registrasi</h1>  
 
         <form method="POST" >  
@@ -16,11 +85,19 @@
                 {{ form.as_table }}  
                 <tr>  
                     <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
+                    <td>
+                        
+                        <button type="submit" class="submit" value="Daftar">Submit</button>
+                    
+                    </td>  
                 </tr>  
-            </table>  
+            </table>
         </form>
 
 </div>  
-
+</body>
 {% endblock content %}
+
+
+<!-- https://getbootstrap.com/docs/4.3/components/card/ -->
+<!-- https://mdbootstrap.com/docs/standard/content-styles/hover-effects/ -->
