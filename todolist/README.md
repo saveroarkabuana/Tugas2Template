@@ -533,3 +533,5 @@ body {
 - https://www.tutorialrepublic.com/html-reference/html5-tags.php
 - https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors
 - https://getbootstrap.com/docs/4.3/components/card/
+
+    
