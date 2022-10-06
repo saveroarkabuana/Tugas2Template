@@ -5,44 +5,48 @@
 
 <style>
 
-a{
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 3px;
+  column-gap: 3px;
+}
+
+a {
   color: black;
 }
-.card{
+
+.card {
     justify-content: center;
     color: rgb(255, 255, 255);
     background-color: rgba(165, 37, 86, 0.666);
 }
 
-
-.card-body{
+.card-body {
     justify-content: center;
     text-align: center;
     background-color: rgba(249, 0, 108, 0.322);
     opacity: 0,5;
 }
 
-
-.card-text{
+.card-text {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.card-font{
+.card-font {
   color: black;
 
-
 }
-.card:hover{
+.card:hover {
   transform: translateY(-10px);
 }
 
-
-h4{
+h4 {
   font-size: 30px;
 }
 
-h5{
+h5 {
   justify-content: center;
   text-align: center;
   color: rgb(255, 255, 255);
@@ -53,7 +57,7 @@ h5{
   margin-bottom: 7px;
 }
 
-h6{
+h6 {
   font-size: 15px;
   margin-top: 7px;
   margin-bottom: 7px;
@@ -91,6 +95,7 @@ h6{
   
 
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+    <div class="wrapper">
     {% for i in list_todolist %}
 
     <div class="card" style="width: 18rem; margin-right: auto; margin-left: auto; padding-bottom: 20; margin-top: 20px;">
@@ -114,7 +119,7 @@ h6{
       </div>
     </div>
     {% endfor %}
-
+  </div>
 <h5>Sesi terakhir login : {{ last_login }}</h5>
 <h5><button type="submit" class="submit"><a href="{% url 'todolist:createtask' %}">Create Task</a></button></h5>
 <h5><button type="submit" class="submit"><a href="{% url 'todolist:logout' %}">Logout</a></button></h5>
