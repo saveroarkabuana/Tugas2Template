@@ -1,12 +1,16 @@
 # ReadMe.MD 
-## Tugas4
+## Tugas 4 dan Tugas 5
 ## Savero Arkabuana
 ## 2106635985
 
 ### [Link Aplikasi Heroku](https://veroarkabuana-pbptugas.herokuapp.com/)
-### [Link Tugas4](https://veroarkabuana-pbptugas.herokuapp.com/todolist/)
+### [Link Tugas 4 dan Tugas 5](https://veroarkabuana-pbptugas.herokuapp.com/todolist/)
 
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
+
+
+### (Penjelasan Tugas 5 ada dibawah penjelasan Tugas 4)
+## Tugas 4
 
 ## Apa kegunaan {% csrf_token %} pada elemen <form>? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen <form>?
 
@@ -252,6 +256,268 @@ def cek_selesai(request, id):
 ![Akun Pertama](ssReadmeTugas4(1).jpg)
 - Screenshot Akun Kedua
 ![Akun Kedua](ssReadmeTugas4(2).jpg)
+    
+    
+## Tugas 5
+    
+## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+
+### Inline
+#### Metode Inline CSS merupakan metode yang digunakan untuk _tag_ HTML tertentu dengan menggunakan atribut ```<style>```, pada masing-masing _tag_ HTML.
+
+- contoh penggunaan
+    
+```
+<div class="card" style="width: 18rem; margin-right: auto; margin-left: auto; padding-bottom: 20; margin-top: 20px;"></div>
+```
+#### Kelebihan Metode Inline CSS
+- Berguna apabila hanya ingin merubah _tag_ HTML tertentu
+- Berguna apabila dibutuhkan _request_ HTTP yang kecil
+    
+#### Kekurangan Metode Inline CSS
+- Metode Inline CSS mengharuskan pengisian pada setiap _tag_ HTML yang bisa menyusahkan _developer_
+- Tidak efektif dan efisien untuk pembangunan web dalam skala besar
+    
+    
+### Internal
+#### Metode Internal CSS merupakan metode yang digunakan dengan mendefinisi atribut ```<style>``` pada halaman HTML itu sendiri. Hal ini akan memberikan atribut tersebut untuk dipakai pada halaman HTML itu saja.
+
+- contoh penggunaan
+    
+```
+<style>
+
+a{
+  color: black;
+}
+.card{
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+
+
+.card-body{
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(249, 0, 108, 0.946);
+    opacity: 0,5;
+}
+
+
+.card-text{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.card-font{
+  color: black;
+
+
+}
+.card:hover{
+  transform: translateY(-10px);
+}
+</style>
+```
+#### Kelebihan Metode Internal CSS
+- Tidak perlu _download_ file eksternal serta _upload_ file eksternal CSS.
+- Perubahan bisa dilihat dengan mudah karena hanya terjadi pada halaman itu saja.
+    
+#### Kekurangan Metode Internal CSS
+- Penggunaan CSS hanya bisa dipakai oleh satu file HTML dan tidak bisa digunakan file HTML lainnya.
+- Tidak efektif dan efisien untuk pembangunan web dalam skala besar.
+
+### External
+#### Metode External CSS merupakan metode yang digunakan untuk memberikan atribut ```<style>``` pada keseluruhan _tag_ HTML dengan memberikan sebuah file eksternal pada bagian awal file HTML. Hal ini akan memungkinkan perubahan atau atribut apapun yang diberikan pada _tag_ untuk dirasakan oleh setiap file HTML yang meng-_upload_ file CSS tersebut pada bagian awal file HTML nya.
+
+- contoh penggunaan
+    
+```
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+```
+#### Kelebihan Metode External CSS
+- Membuat file HTML untuk dibaca dengan mudah dikarenakan minimnya pendefinisian _tag_ dan atribut.
+- File CSS bisa digunakan dengan mudah pada setiap file HTML.
+- Efektif dan efisien untuk pembangunan web dalam skala besar.
+    
+#### Kekurangam Metode External CSS
+- Sulit untuk menemukan potongan kode yang salah apabila terjadi kesalahan pada penyajian data di halaman.
+- File CSS harus dipastikan untuk bisa dipanggil sebelum penampilan halaman web.
+    
+    
+## Jelaskan _tag_ HTML5 yang kamu ketahui.
+
+- ```<head>```, Men-_define_ _head_ dari file HTML yang berisi informasi serta judul dan file unggahan external seperti External CSS atau pemakaian Bootstrap.
+- ```<h1> - <h6>```, Men-_define_ _headings_ pada halaman HTML.
+- ```<b>```, Men-_define_ _text_ untuk menjadi _bold_.
+- ```<a>```, Men-_define_ _hyperlink_.
+- ```<div>```, Men-_define_ bagian tertentu pada file HTML tersebut.
+- ```<p>```, Men-_define_ sebuah paragraf.
+- ```<button>```, Men-_define_ sebuah tombol.
+- ```<table>```, Men-_define_ sebuah tabel data.
+- ```<title>```, Men-_define_ sebuah judul.
+- ```<ul>```, Men-_define_ sebuah _unordered list_.
+
+
+## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+
+- Type selector yang berfungsi untuk men-_define_ _tag_ HTML tertentu untuk disesuaikan sesuai kemauan.
+- Class selector yang berfungsi untuk men-_define_ class HTML tertentu untuk disesuaikan sesuai kemauan.
+- Id selector yang berfungsi untuk men-_define_ elemen HTML tertentu berdasarkan Id nya untuk disesuaikan sesuai kemauan.
+- Pseudo-classes selector yang berfungsi untuk men-_define_ elemen HTML tertentu yang dalam _state_ tertentu berdasarkan _pseudo-class_ nya.
+
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+### Melakukan import Bootstrap untuk file HTML
+
+```
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js%22%3E"> </script>
+    
+ ```
+### Melakukan perubahan kepada file login, register, todolist, dan createtask.
+
+- Perubahan dilakukan dengan mendefinisikan atribut untuk _tag-tag_ secara Internal CSS.
+```
+<style>
+
+h1{
+    text-align: center;
+    
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container{
+  max-width: 440px;
+  padding: 0 20px;
+  margin: 170px auto;
+  color: aliceblue;
+}
+
+
+.wrapper{
+  width: 100%;
+  background: rgba(209, 10, 76, 0.531);
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(210, 17, 184, 0.1);
+  padding: 10px;
+  
+}
+
+
+.wrapper:hover {
+  box-shadow: 0 0.5em 0.3em -0.2em var(--hover);
+  transform: translateY(-0.15em);
+}
+
+
+.submit {
+  background-color: rgb(221, 0, 85);
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 22px;
+  height: 50px;
+  margin-top: 20px;
+  outline: 0;
+  text-align: center;
+  width: 100%;
+}
+
+
+.submit:hover {
+  box-shadow: 0 0.5em 0.3em -0.2em var(--hover);
+  transform: translateY(-0.15em);
+}
+    
+```
+- Lalu mengimplementasikan setiap _tag_ sesuai dengan urutan serta fungsi dalam setiap file.
+
+- Untuk todolist.html, diperlukan pendefinisan lebih untuk ```card``` agar bisa menampilkan data dalam bentuk _card_.
+    
+```
+}
+.card{
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+
+
+.card-body{
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(249, 0, 108, 0.946);
+    opacity: 0,5;
+}
+
+
+.card-text{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.card-font{
+  color: black;
+
+
+}
+.card:hover{
+  transform: translateY(-10px);
+}
+
+```
+    
+- Lalu mengimplementasikannya dalam _looping_ penyajian data.
+    
+```
+   
+{% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+    {% for i in list_todolist %}
+
+    <div class="card" style="width: 18rem; margin-right: auto; margin-left: auto; padding-bottom: 20; margin-top: 20px;">
+      <div class="card-body">
+        <h4 class="card-font">{{i.title}}</h4>
+        <h6 class="card-font">{{i.description}}</h6>
+        <p class="card-text">{{i.date}}</p>
+        <form action="{% url 'todolist:cek-selesai' id=i.id %}" method="post">
+          {% csrf_token %}
+          {% if i.is_finished %}
+          <th><button type="submit" class="submit">Belum Selesai</button>
+          {% else %}
+          <th><button type="submit" class="submit">Selesai</button>
+          {% endif %}
+        </form>
+        <form action="{% url 'todolist:hapus' id=i.id %}" method="post">
+          {% csrf_token %}
+          <th><button type="submit" class="submit">Hapus Task</button>
+        </form>
+    </tr>
+      </div>
+    </div>
+    {% endfor %}
+ 
+# Template penyajian dengan Card digunakan dari https://getbootstrap.com/docs/4.3/components/card/
+
+```
+    
 
 ## Sumber
 
@@ -263,3 +529,9 @@ def cek_selesai(request, id):
 - https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/
 - https://docs.djangoproject.com/en/4.1/ref/csrf/
 - https://www.educative.io/answers/what-is-a-csrf-token-in-django
+- https://www.hostinger.co.id/tutorial/perbedaan-inline-css-external-css-dan-internal-css
+- https://www.tutorialrepublic.com/html-reference/html5-tags.php
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors
+- https://getbootstrap.com/docs/4.3/components/card/
+
+    
