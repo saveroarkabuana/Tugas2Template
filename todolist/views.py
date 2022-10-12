@@ -97,5 +97,9 @@ def cek_selesai(request, id):
     return show_todolist(request)
 
 
+@login_required(login_url='/todolist/login/')
+def todolist_json(request):
+    task = ToDoListItem.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", task), content_type="application/json")
 
     

@@ -7,6 +7,7 @@ from todolist.views import logout_user
 from todolist.views import create_task
 from todolist.views import hapus
 from todolist.views import cek_selesai
+from todolist.views import todolist_json
 
 app_name = 'todolist'
 
@@ -18,5 +19,5 @@ urlpatterns = [
     path('create-task/', create_task, name='createtask'),
     path('hapus/<int:id>', hapus, name='hapus'),
     path('cek-selesai/<int:id>', cek_selesai, name='cek-selesai'),
-    
+    path('json/', todolist_json, name='todolist_json'),
 ]

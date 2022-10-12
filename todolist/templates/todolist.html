@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js%22%3E"> </script>
+
 {% block content %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
 <style>
 
@@ -40,6 +42,22 @@ a {
 }
 .card:hover {
   transform: translateY(-10px);
+}
+
+h1{
+  font-size: 20px;
+}
+h2{
+  color: aliceblue;
+  font-size: 18px;
+}
+
+h3{
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+  color: aliceblue;
+  margin-bottom: 5px;
 }
 
 h4 {
@@ -90,44 +108,133 @@ h6 {
 
 </style>
 
-<h5>User : {{user}} </h5>
+<h2>User in session : {{user}} </h2>
+<h5>{{user}}'s List of Tasks </h5>
+<h3><button type="button" class="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add a new task</button></h3>
 <body style="background-image: url(https://www.wallpaperuse.com/wallp/26-264578_m.jpg);">
   
 
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     <div class="wrapper">
-    {% for i in list_todolist %}
 
-    <div class="card" style="width: 18rem; margin-right: auto; margin-left: auto; padding-bottom: 20; margin-top: 20px;">
+</div>
+</div>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Fill out your task title and description</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
       <div class="card-body">
-        <h4 class="card-font">{{i.title}}</h4>
-        <h6 class="card-font">{{i.description}}</h6>
-        <p class="card-text">{{i.date}}</p>
-        <form action="{% url 'todolist:cek-selesai' id=i.id %}" method="post">
-          {% csrf_token %}
-          {% if i.is_finished %}
-          <th><button type="submit" class="submit">Belum Selesai</button>
-          {% else %}
-          <th><button type="submit" class="submit">Selesai</button>
-          {% endif %}
-        </form>
-        <form action="{% url 'todolist:hapus' id=i.id %}" method="post">
-          {% csrf_token %}
-          <th><button type="submit" class="submit">Hapus Task</button>
-        </form>
-    </tr>
+          <form class="create_task" method="POST">
+              {% csrf_token %}
+              <div class="card-body" style="padding-left:0.5%;margin-top: 5px; margin-bottom: 5px;">
+              <h3><input 
+                type="text" 
+                class="form-control" 
+                id="floatingInput" 
+                name="title" ></h3>
+                <label for="floatingInput">Title</label>
+              </div>
+            
+              <div class="card-body" style="padding-left:0.5%;margin-top: 5px;margin-bottom: 5px;">
+              <h3><textarea 
+                class="form-control" 
+                id="floatingDescription" 
+                name="description" rows="4" cols="50"></textarea></h3>
+                <label for="floatingDescription" style="padding-left:2.5%;">Description</label>
+              </div>
+            </form>
+      </div>
+      <div class="card-body">
+        <h3><button type="button" class="submit" data-bs-dismiss="modal">Close</button> 
+        <button type="button" class="submit" onclick="create()">Create Task</button></h3>
       </div>
     </div>
-    {% endfor %}
   </div>
-<h5>Sesi terakhir login : {{ last_login }}</h5>
-<h5><button type="submit" class="submit"><a href="{% url 'todolist:createtask' %}">Create Task</a></button></h5>
-<h5><button type="submit" class="submit"><a href="{% url 'todolist:logout' %}">Logout</a></button></h5>
-</h5>
+</div>  
 
-{% endblock content %}
+<h3><button class ="submit"><a href="{% url 'todolist:logout' %}" style="color:aliceblue ;">Logout</a></button></h3>
+<h3>Sesi terakhir login : {{last_login}}</h3>
+
 
 </body>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    $(document).ready(() => {
+        get_task();
+    })
+    function create() {
+        const form = $(".create_task");
+        $.ajax({
+            type: "POST",
+            url: "/todolist/create-task/",
+            data: form.serialize(),
+        }).done(function (data) {
+            form.trigger("reset");
+            get_task();
+        });
+        $("#staticBackdrop").modal("hide");
+    }
+
+    function delete_task(id) {
+        $.ajax({
+            type: "GET",
+            url: "/todolist/hapus/" + id,
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'}
+        }).done((data) => {
+            get_task();
+        })
+    }
+
+    function change_status(id) {
+        $.ajax({
+            type: "GET",
+            url: "/todolist/cek-selesai/" + id,
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}', pk: id}
+        }).done((data) => {
+            get_task();
+        })
+    }
+
+    function get_task() {
+        $.ajax({
+            type: "GET",
+            url: "/todolist/json/"
+        }).done((data) => {
+            putTaskList(data);
+        });
+    }
+
+    function putTaskList(data) {
+        const displayTable = $('.wrapper');
+        displayTable.empty();
+        data.forEach(task => {
+            const taskCard = `
+            <div class="card" style="width: 18rem; margin-right: auto; margin-left: auto; padding-bottom: 20; margin-top: 20px;">
+            <div class="card-body">
+            <h4 class="card-font">${task.fields.title}</h4>
+            <h6 class="card-text">${task.fields.date}</h6>
+            <p class="card-font">${task.fields.description}</p>
+            ${task.fields.is_finished ? "Selesai" : "Belum Selesai"} <br>
+              <input type="submit" value="Change Status" class="submit" onclick="change_status(${task.pk})" />
+              <input type="submit" value="Delete Task"  class="submit" onclick="delete_task(${task.pk})" />
+        </div>
+      </div>`
+      ;
+            displayTable.append(taskCard);
+        })
+    };
+</script>
+
+{% endblock content %}
+
 <!-- https://getbootstrap.com/docs/4.3/components/card/ -->
 <!-- https://mdbootstrap.com/docs/standard/content-styles/hover-effects/ -->
+<!-- https://getbootstrap.com/docs/4.0/components/modal/ -->
