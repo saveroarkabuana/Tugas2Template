@@ -10,11 +10,13 @@ Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu 
 
 ## Tugas 6
 
+
 ## Jelaskan perbedaan antara _asynchronous programming_ dengan _synchronous programming_.
 
 - Asynchronous Programming: Data dikirimkan secara _asynchronous_ baik dalam bentuk byte atau karakter dan transmisi yang digunakan adalah _half-duplex_. Dalam transmisi ini, data dicampur dengan _bit start_ dan _bit stop_. Tidak perlu ada proses sinkronisasi dan tidak perlu menunggu proses sebelumnya untuk selesai.
 
 - Synchronous Programming: Data ditransmisikan dalam bingkai atau blok selama transmisi sinkron dan menggunakan transmisi _full-duplex_. Ketika _request_ datang, akan ada proses sinkronisasi dan harus menunggu proses itu untuk selesai menangani _request_.
+
 
 ## Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma _Event-Driven Programming_. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
 
@@ -30,6 +32,7 @@ Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu 
 ## Jelaskan penerapan _asynchronous programming_ pada AJAX.
 
 - Asynchronous Javascript & XML (AJAX) bekerja dengan tanpa mengubah status situs web atau melakukan _refresh_ saat mengirim dan menerima data secara _asynchronous_ dari server akhir klien.
+
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 
@@ -203,4 +206,21 @@ path('json/', todolist_json, name='todolist_json'),
 
 - Setelah selesai mengisi file-file pada todolist, _repository_ kemudian disimpan pada akun GitHub dengan menggunakan ```git add .```, ```git commit -m "commit message"```, dan ```git push```. Setelah _repository_ telah disimpan, akan di-_deploy_ menggunakan _platform_ Heroku dengan mengikuti arahan pada _template_ yang digunakan pada tugas-tugas sebelumnya ini.
 
+## Sumber
+
+- https://github.com/pbp-fasilkom-ui/assignment-repository
+- https://docs.djangoproject.com/en/4.1/topics/http/urls/#:~:text=Django%20runs%20through%20each%20URL,a%20class%2Dbased%20view).
+- https://www.geeksforgeeks.org/python-virtual-environment/
+- https://docs.djangoproject.com/en/4.1/topics/db/models/
+- https://docs.djangoproject.com/en/4.1/topics/http/views/
+- https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/
+- https://docs.djangoproject.com/en/4.1/ref/csrf/
+- https://www.educative.io/answers/what-is-a-csrf-token-in-django
+- https://www.hostinger.co.id/tutorial/perbedaan-inline-css-external-css-dan-internal-css
+- https://www.tutorialrepublic.com/html-reference/html5-tags.php
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors
+- https://getbootstrap.com/docs/4.3/components/card/
+- https://getbootstrap.com/docs/4.0/components/modal/
+- https://www.microfocus.com/documentation/silk-performer/205/en/silkperformer-205-webhelp-en/GUID-6CC17B5B-71B7-4703-B9E6-C81835A5335A.html
+- https://www.holloway.com/g/remote-work/sections/synchronous-vs-asynchronous-communication#:~:text=Examples%20of%20synchronous%20communication%20are,the%20message%20at%20their%20convenience.
 
